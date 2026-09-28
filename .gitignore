@@ -1,0 +1,9 @@
+# Personal material must never be committed (SPEC rule S1)
+.personal-terms
+private/
+memory-backup-*.md
+*.backup.md
+
+# Scratch
+.tmp/
+.DS_Store
