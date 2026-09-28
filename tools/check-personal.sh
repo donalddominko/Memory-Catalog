@@ -6,6 +6,10 @@
 # whole words, case-insensitively. Lines starting with # are ignored.
 # The terms file itself must never be committed (it is in .gitignore).
 #
+# Allowed strings: a match is ignored when its line contains a string listed in
+# .personal-allow (one per line, committed), for example the project's own
+# public repository URL.
+#
 # LICENSE is skipped: its copyright line names the author on purpose.
 #
 # Exit 0 = clean. Exit 1 = matches found (printed with file and line).
@@ -14,6 +18,7 @@ set -euo pipefail
 
 dir=${1:-.}
 terms=${2:-$dir/.personal-terms}
+allow=$dir/.personal-allow
 
 if [ ! -f "$terms" ]; then
   echo "no terms file at $terms — create it with one personal term per line" >&2
@@ -21,12 +26,20 @@ if [ ! -f "$terms" ]; then
   exit 2
 fi
 
-patterns=$(mktemp); trap 'rm -f "$patterns"' EXIT
+patterns=$(mktemp); allowed=$(mktemp); trap 'rm -f "$patterns" "$allowed"' EXIT
 grep -vE '^\s*(#|$)' "$terms" > "$patterns" || true
 [ -s "$patterns" ] || { echo "terms file is empty: $terms" >&2; exit 2; }
+[ -f "$allow" ] && grep -vE '^\s*(#|$)' "$allow" > "$allowed" || true
 
-if grep -rniwF -f "$patterns" \
-     --exclude-dir=.git --exclude=LICENSE --exclude="$(basename "$terms")" "$dir"; then
+hits=$(grep -rniwF -f "$patterns" \
+         --exclude-dir=.git --exclude=LICENSE \
+         --exclude="$(basename "$terms")" --exclude=.personal-allow "$dir" || true)
+if [ -s "$allowed" ] && [ -n "$hits" ]; then
+  hits=$(printf '%s\n' "$hits" | grep -vF -f "$allowed" || true)
+fi
+
+if [ -n "$hits" ]; then
+  printf '%s\n' "$hits"
   echo "personal terms found — remove them before committing" >&2
   exit 1
 fi

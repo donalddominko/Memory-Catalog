@@ -6,6 +6,7 @@ aliases: [checkpoint registry, anchors, provenance]
 Format: chat-key tN "verbatim anchor phrase" [status]
 
 ## a1b2c3d4 = a1b2c3d4-0000-4000-8000-000000000001 "Tidepool v2 planning"
+- a1b2c3d4 t3 "no sign-in, ever" [verified 2026-10-03]
 - a1b2c3d4 t5 "run ads at launch" [verified 2026-10-03]
 - a1b2c3d4 t6 "ads can wait, offline first" [verified 2026-10-03]
 - a1b2c3d4 t7 "sailing clubs" [verified 2026-10-03]

@@ -1,0 +1,3 @@
+# Strings allowed despite containing personal terms (see tools/check-personal.sh).
+# One per line. Keep this list as short as possible.
+github.com/donalddominko/Memory-Catalog

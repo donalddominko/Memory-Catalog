@@ -21,7 +21,7 @@ This guide covers Claude, the platform it was built on. For other assistants, se
 Download `SPEC.md` from this repository, or clone it:
 
 ```bash
-git clone https://github.com/<owner>/Memory-Catalog.git
+git clone https://github.com/donalddominko/Memory-Catalog.git
 ```
 
 ### 2. Start the setup
@@ -59,16 +59,13 @@ For each Project where several chats work on the same thing, open a chat **insid
 
 This creates `_board.md`, `_feed.md`, `_inbox.md` and `_considered.md` in that Project's memory (see `templates/project/`). Keep the Project's memory connected to your main memory, or the catalog can't see it.
 
+**Know the limit.** The nightly sync that moves news between Projects and main memory isn't live yet (SPEC §8). Until it is, a board shares status only between chats of the same Project. To bring a Project's news into your main catalog, open a main chat and send:
+
+> read the *Project name* board and update the catalog
+
 ## Daily use
 
-| Say | When |
-|---|---|
-| **catalog this chat** | At the end of a working chat |
-| what's next / backlog for *stream* | Planning your day |
-| was *idea* considered? | Before re-opening an old idea |
-| verify checkpoints | Occasionally, to confirm provenance links still resolve |
-
-Full list: [SPEC §12](SPEC.md#12-commands).
+At the end of a working chat, say **catalog this chat**. Every other command (what to say, where to say it, and what you get back) is in the [Commands table in the README](README.md#commands), copied from [SPEC §12](SPEC.md#12-commands).
 
 ## Updating to a new spec version
 
@@ -84,7 +81,7 @@ Send:
 
 > Delete the catalog files.
 
-Whole-file deletion only happens when you ask explicitly (rule S2). Ask for a backup first if you might want the content later. Your other memory files are not affected.
+Whole-file deletion only happens when you ask explicitly (rule S2). You'll be offered a backup first; the backup format is in [SPEC §16](SPEC.md#16-formats-backup-cut-list-unverified-marker). Your other memory files are not affected.
 
 ## Using the tools
 
@@ -102,14 +99,18 @@ tools/verify-backup.sh backup.md /areas/project.md=15618 /catalog/log.md=2219
 # S1: before publishing anything, is it free of your personal terms?
 printf 'Your Name\nyour-company\n' > .personal-terms   # never committed
 tools/check-personal.sh .
+# strings that are allowed despite matching (e.g. your own repo URL) go in .personal-allow
+
+# After editing SPEC §12: copy the command table into the README (or --check it)
+tools/sync-readme-commands.sh
 ```
 
-Each script prints its usage when run without arguments.
+Each script prints its usage when run without arguments. What each one proves: [SPEC §15](SPEC.md#15-tools-and-publishing). The backup and cut-list formats they work with: [SPEC §16](SPEC.md#16-formats-backup-cut-list-unverified-marker).
 
 ## Other assistants
 
 The structure is plain Markdown, so it carries over to any assistant that can keep persistent files:
 
 1. Create the files from `templates/catalog/` in the assistant's memory or knowledge store.
-2. Store `SPEC.md` there as the protocol, and tell the assistant to read it before any catalog action.
+2. Store `SPEC.md` there as the protocol, and tell the assistant to read it before any catalog action. Add `templates/area.md` for each work stream.
 3. Replace Claude-specific parts that don't exist on your platform. Chat checkpoints need a way to open a past chat at a given turn. Project boards need shared per-project memory. The nightly sync needs scheduled tasks. Rule S3 covers this: without a capability, that part is skipped and the rest still works.
