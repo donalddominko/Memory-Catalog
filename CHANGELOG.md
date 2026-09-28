@@ -2,6 +2,9 @@
 
 Specification versions. The version in `SPEC.md` always matches the protocol in use.
 
+## Repository — 2026-09-28
+- Added INSTALL.md: requirements, installing in Claude, checking the installation, Project boards, updating, removing, using the tools, and adapting to other assistants. No change to the spec itself.
+
 ## v0.8 — 2026-09-28
 - Added the "already considered" register (`considered.md`, §5a). It records ideas the user declined, with the user's own reason, and ideas raised in the analysis but never discussed, recorded as topic labels only.
 - "catalog this chat" now ends with a three-part report: filed, declined, not discussed (§5 steps 6–7).

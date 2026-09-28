@@ -18,6 +18,8 @@ The catalog fixes this with a few rules:
 
 ## Quick start
 
+Full step-by-step instructions, including requirements, checking the installation, updates and removal, are in **[INSTALL.md](INSTALL.md)**.
+
 1. Read [`SPEC.md`](SPEC.md). It is the whole system.
 2. Give it to your assistant and say: **"set up the catalog system from this spec."** It will create the catalog files from [`templates/`](templates/), sweep your existing memory into them, and ask where to start. The spec itself goes into memory as `/catalog/protocol.md`, adapted to your memory's line format.
 3. At the end of a working chat, say **"catalog this chat"**. You'll get candidate entries to approve and a three-part report: what was filed, what you declined, and what was raised but never discussed.
@@ -43,6 +45,7 @@ Projects get their own `_board.md` (shared status for chats in that Project), `_
 
 ```
 SPEC.md                the full specification
+INSTALL.md             how to install, check, update and remove it
 CHANGELOG.md           spec versions
 templates/catalog/     empty starter files for main memory
 templates/project/     empty starter files for a Project
