@@ -2,6 +2,8 @@
 
 A protocol for organising an AI assistant's long-term memory so it stays useful as it grows: an **index** of your work streams, a **backlog** of what's next, a dated **log** of what happened, a register of ideas **already considered**, and links from every entry back to the exact chat turn it came from.
 
+If you find it useful, a ⭐ helps others discover it.
+
 It was designed and tested with Claude's memory and Projects. Everything is plain Markdown files, so the structure carries over to any assistant with file-based memory.
 
 ## Why
@@ -66,6 +68,10 @@ Each script prints its usage when run without arguments.
 ## Status
 
 Specification **v0.8**. The index, backlog, log, principles, checkpoints and "already considered" register are in daily use. The quotes file, Project feeds and inboxes, and the nightly sync are specified but not yet running. See [SPEC §14](SPEC.md#14-rollout-order-for-a-new-setup) and the [changelog](CHANGELOG.md).
+
+## Support the project
+
+If Memory Catalog is useful to you, please **leave a star ⭐** at the top of this page. It helps other people find the project and shows that it's worth continuing to develop.
 
 ## Licence
 
