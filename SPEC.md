@@ -1,4 +1,4 @@
-# Memory Catalog — Specification v0.11
+# Memory Catalog — Specification v0.12
 
 A generic setup for tracking productive work in an AI assistant's memory: what work streams exist, what is to be done next, and what has already happened.
 
@@ -153,6 +153,7 @@ A scheduled task at a fixed night-time hour, in a fresh session: read each Proje
 - The default for a blank answer is always the safe one: keep the information, make no change. Say which default was applied.
 - Ask only questions whose answers change what gets done, in one round.
 - If an answer is ambiguous, ask again about that one item only. Never guess.
+- If the user says they do not know which option is better, do not make them choose blind and do not choose for them. First present the trade-offs of each option (what it gains, what it costs, what it risks, what it makes harder later), say which one the assistant would recommend and why, and only then ask for the decision. Nothing is filed or built until the user has chosen.
 
 ## 10. Rules for applying approved changes
 
@@ -258,3 +259,4 @@ If your assistant can hand work to helper agents (sub-agents), for example to re
 - **Right-size the model.** Choose the model for each helper by the task: a cheap, fast model for mechanical work such as reading chat turns, extracting lines into a fixed format, counting, or checking an anchor phrase; a mid-tier model for extraction that needs judgment about why something was decided; the most expensive model only for work that truly needs deep reasoning. Never leave every helper on the most expensive model by default, and never launch many expensive-model helpers at the same moment, because a session limit can stop all of them.
 - **Record progress durably.** Tell every helper to write its findings to its own notes file as it goes (at least every few turns or items), to begin the file with the range it covers, to keep a resume marker (the last turn or item recorded), and to end the file with a coverage line. If a session is interrupted, the work done so far is not lost: the assistant reads the notes files, finds the last item recorded in each, and resumes the interrupted range from just before that point instead of starting again.
 - **Keep batches small enough to survive a limit.** Launch helpers in modest waves, check the notes files after each wave, and relaunch only the ranges that did not finish. When the helpers use a chat-reading tool, run at most about three at the same time: in one run, with six in parallel, four lost the tool partway through their range, while every later wave of three finished.
+- **Check tool caps before launching.** Tools can limit how many calls they allow per hour or per session, and the limit differs from one provider to another. Before launching helpers, estimate how many calls the whole job needs and compare that with the cap, which the assistant and all its helpers share. Split the job so it fits, run it in waves, record in the notes where each range stopped, and resume after the cap resets (a scheduled task can do this). Claude-specific, as measured on 2026-10-02: the chat-reading tool allowed 256 calls per hour, and reading one long turn cost one call, so a 624-turn chat plus verification passes exceeded one hour's allowance. Other providers will have other limits.

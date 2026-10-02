@@ -2,6 +2,10 @@
 
 Specification versions. The version in `SPEC.md` always matches the protocol in use. Each version is tagged in git (`v0.9`, …).
 
+## v0.12 — 2026-10-02
+- **§9:** when the user does not know which option is better, the assistant presents the trade-offs of each option and a recommendation before asking for a decision.
+- **§17:** check tool caps before launching helpers; the cap differs by provider (the Claude-specific figure is marked as such).
+
 ## v0.11 — 2026-10-02
 - **§17 Working with helper agents:** right-size the model per task, record progress durably with a resume marker, and keep batches small. At most about three helpers that use a chat-reading tool run at once.
 
