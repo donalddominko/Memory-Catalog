@@ -1,4 +1,4 @@
-# Memory Catalog — Specification v0.9
+# Memory Catalog — Specification v0.11
 
 A generic setup for tracking productive work in an AI assistant's memory: what work streams exist, what is to be done next, and what has already happened.
 
@@ -250,3 +250,11 @@ Verdicts:
 It ends with the result of the mechanical check (rule S2) and any questions, following section 9. The proposed new files are attached so the user can read exactly what will be written.
 
 **Unverified marker.** When an item can't be checked because its source is unreachable, it stays where it is and gets ` [unverified: <reason>, <date>]` appended to its line, for example ` [unverified: repository not reachable, 2026-09-28]`. The marker is removed when the item is later checked. Checkpoints don't use this marker; they have their own statuses (section 6).
+
+## 17. Working with helper agents
+
+If your assistant can hand work to helper agents (sub-agents), for example to read a long chat in parallel, these rules apply to every task, not only to catalog work.
+
+- **Right-size the model.** Choose the model for each helper by the task: a cheap, fast model for mechanical work such as reading chat turns, extracting lines into a fixed format, counting, or checking an anchor phrase; a mid-tier model for extraction that needs judgment about why something was decided; the most expensive model only for work that truly needs deep reasoning. Never leave every helper on the most expensive model by default, and never launch many expensive-model helpers at the same moment, because a session limit can stop all of them.
+- **Record progress durably.** Tell every helper to write its findings to its own notes file as it goes (at least every few turns or items), to begin the file with the range it covers, to keep a resume marker (the last turn or item recorded), and to end the file with a coverage line. If a session is interrupted, the work done so far is not lost: the assistant reads the notes files, finds the last item recorded in each, and resumes the interrupted range from just before that point instead of starting again.
+- **Keep batches small enough to survive a limit.** Launch helpers in modest waves, check the notes files after each wave, and relaunch only the ranges that did not finish. When the helpers use a chat-reading tool, run at most about three at the same time: in one run, with six in parallel, four lost the tool partway through their range, while every later wave of three finished.

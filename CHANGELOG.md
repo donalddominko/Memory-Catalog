@@ -2,6 +2,12 @@
 
 Specification versions. The version in `SPEC.md` always matches the protocol in use. Each version is tagged in git (`v0.9`, …).
 
+## v0.11 — 2026-10-02
+- **§17 Working with helper agents:** right-size the model per task, record progress durably with a resume marker, and keep batches small. At most about three helpers that use a chat-reading tool run at once.
+
+## v0.10 — 2026-10-01
+- Added §17 (helper agents): choose the model by task, never launch many expensive-model helpers at once, and have each helper record progress to a notes file so an interrupted session loses nothing. Superseded by v0.11, which adds the limit on parallel chat-reading helpers.
+
 ## v0.9 — 2026-09-29
 Consolidation: every concept now has one home, and the files point to it.
 - **§0 Terms:** one glossary (work stream, area file, Project, checkpoint, anchor, candidate, register, cut list, backup, unverified, …).
