@@ -1,4 +1,4 @@
-# Memory Catalog — Specification v0.13
+# Memory Catalog — Specification v0.14
 
 A generic setup for tracking productive work in an AI assistant's memory: what work streams exist, what is to be done next, and what has already happened.
 
@@ -107,7 +107,7 @@ Example of parking: promotion tasks for an open-source project stay active as if
    6. open questions → backlog as `[waiting on the user]`
 
    Everything else is discarded.
-3. **Adoption gate:** anything that came from the assistant's analysis rather than the user is shown as a *candidate* and filed only after the user confirms it. Confirmation is what makes it the user's own.
+3. **Adoption gate:** anything that came from the assistant's analysis rather than the user is shown as a *candidate* and filed only after the user confirms it. Confirmation is what makes it the user's own. Candidates about the current state of something kept elsewhere also pass the source check (section 18, step E) before they are shown.
 4. Ask clarifying questions following section 9, in one round.
 5. Write only what was approved, following section 10.
 6. Record everything that was **not** filed in the register (section 5a), so it is never lost and never presented again as new.
@@ -269,7 +269,9 @@ Applies when the user asks to catalogue many past chats ("catalog my past chats"
 - **Step B, triage.** The user marks each chat: catalogue now, later, or drop. "Later" chats go into the backlog as [on hold until the user says so]. Dropped chats go into the register (section 5a) as declined, with the user's reason or "no reason given", so they are never proposed again. Nothing is read in depth before triage. A blank answer means "later"; nothing is dropped by default.
 - **Step C, choose the mode, stating which and why.** Interactive (section 5) when the chat is up to about 50 turns and the batch is fewer than 3 chats; background when a chat is over about 50 turns or the batch is 3 or more. The turn count is checked first. The threshold is a guide and the user can override it.
 - **Step D, background run.** Helpers follow section 17 (right-sized models, notes files with resume markers, small waves, tool caps checked, scheduled resumes after a cap resets). An unattended run produces only a candidates file, grouped by the six groups in section 5. Each candidate carries a checkpoint and an anchor phrase. An unattended run never writes to the catalog or memory and never asks questions.
-- **Step E, verify before presenting.** A verification pass opens each cited turn and finds the anchor phrase. Only candidates that pass are put forward for approval. Candidates that fail are left out and listed separately with the reason, and they are not offered for filing until fixed. Where another source of truth exists (for example a repository), conflicts are resolved to its final state and labelled.
+- **Step E, verify before presenting.** Two checks, both before anything is put forward.
+  1. *Chat check.* A verification pass opens each cited turn and finds the anchor phrase. Only candidates that pass are put forward for approval. Candidates that fail are left out and listed separately with the reason, and they are not offered for filing until fixed.
+  2. *Source check.* Any candidate that states the current state of something kept elsewhere (a risk in code, work reported as complete, a setting, a number) is checked against that source, not only against the chat: open the file or setting the claim names, in the repository at its latest commit or in the document. Each candidate gets one result: **CONFIRMED** (still true; name the file and the commit or date), **FIXED LATER** (true when said, no longer true; filed only as history, never as an open risk), **REFUTED** (never true; left out and listed with the evidence), **PARTLY** (say which part holds and which does not), or **NOT CHECKABLE** (no source reachable, or the claim is about history; presented as unverified, section 16). When presenting, name the source and commit used. If a stream has no named source of truth, ask where it is (section 9) before presenting. Where chat and source disagree, the source's final state wins and the difference is labelled. A report never says a candidate was checked unless the check was done, and it says which candidates were not checked.
 - **Step F, adoption gate.** The user approves all, by group, or one by one. Questions follow section 9 and writing follows section 10. Anchors are registered in the checkpoint registry; if a chat has many of them, they go in their own file linked from it. Everything not filed goes into the register.
 - **Step G, report.** The three-part report from section 5, step 7, plus the chats skipped or dropped.
 - **Resume.** The backlog line names the next unfinished chat or turn range.

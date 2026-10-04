@@ -2,6 +2,10 @@
 
 Specification versions. The version in `SPEC.md` always matches the protocol in use. Each version is tagged in git (`v0.9`, …).
 
+## v0.14 — 2026-10-04
+- **§18, step E:** a second check, the source check. A candidate that states the current state of something kept elsewhere (a risk in code, completed work, a setting, a number) is checked against that source at its latest commit, not only against the chat. Results: CONFIRMED, FIXED LATER, REFUTED, PARTLY, NOT CHECKABLE. Fixed-later items are filed as history, refuted ones are left out, and a report must say which candidates were not checked.
+- **§5, step 3:** pointer to the source check.
+
 ## v0.13 — 2026-10-04
 - **§18 Bulk cataloguing of past chats:** inventory, then triage (catalogue now, later, or drop; dropped chats go into the register), then a mode chosen by a threshold (interactive for a chat up to about 50 turns and a batch under 3; background otherwise). Unattended runs only produce candidates; only candidates whose anchors are verified are put forward; the adoption gate and the three-part report still apply.
 - **§5 and §12:** pointers to §18.
