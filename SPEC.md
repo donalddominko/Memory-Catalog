@@ -1,4 +1,4 @@
-# Memory Catalog — Specification v0.12
+# Memory Catalog — Specification v0.13
 
 A generic setup for tracking productive work in an AI assistant's memory: what work streams exist, what is to be done next, and what has already happened.
 
@@ -113,7 +113,7 @@ Example of parking: promotion tasks for an open-source project stay active as if
 6. Record everything that was **not** filed in the register (section 5a), so it is never lost and never presented again as new.
 7. Report back in three parts: **(a)** what was filed and where; **(b)** what the user declined, and the user's reason; **(c)** what was raised in the analysis but never discussed. Parts (b) and (c) each carry the checkpoint to where the idea was raised. See [`examples/report.md`](examples/report.md).
 
-Inside a Project chat, the same steps write only that Project's files and append to its `_feed.md`, never to `/catalog/`. A chat moved into a Project is catalogued from inside the Project. "catalog my past chats" runs the same steps one chat at a time.
+Inside a Project chat, the same steps write only that Project's files and append to its `_feed.md`, never to `/catalog/`. A chat moved into a Project is catalogued from inside the Project. "catalog my past chats" runs the same steps one chat at a time; for many chats, see section 18.
 
 ## 5a. The "already considered" register
 
@@ -183,7 +183,7 @@ Wording doesn't have to be exact; the meaning does. **Where:** MAIN = a chat out
 | **export the catalog spec** | MAIN | Generates this document from the protocol (rule S1) | The file |
 | **clean up** *file* / **slim** *area file* | MAIN | The rule S2 procedure (section 16) | A backup file and a cut list; nothing removed until you approve |
 | **catalog this chat** | ANY | Section 5 (inside a Project it writes only that Project's files) | Candidates and questions, then the three-part report |
-| **catalog my past chats** / **catalog chats about** *topic* | ANY | Section 5, one chat at a time; only reaches chats in the same scope | The same, per chat |
+| **catalog my past chats** / **catalog chats about** *topic* | ANY | Section 5, one chat at a time (for many chats, section 18); only reaches chats in the same scope | The same, per chat |
 | **what's next** / **backlog for** *stream* | ANY | Reads the backlog | The matching task lines |
 | **park** *task* / *task* **is done** / **drop** *task* | ANY | Status change + log line; "done" needs evidence (section 4) | Confirmation of the change |
 | **status digest** | ANY | Reads the index and backlog | A plain text summary |
@@ -260,3 +260,16 @@ If your assistant can hand work to helper agents (sub-agents), for example to re
 - **Record progress durably.** Tell every helper to write its findings to its own notes file as it goes (at least every few turns or items), to begin the file with the range it covers, to keep a resume marker (the last turn or item recorded), and to end the file with a coverage line. If a session is interrupted, the work done so far is not lost: the assistant reads the notes files, finds the last item recorded in each, and resumes the interrupted range from just before that point instead of starting again.
 - **Keep batches small enough to survive a limit.** Launch helpers in modest waves, check the notes files after each wave, and relaunch only the ranges that did not finish. When the helpers use a chat-reading tool, run at most about three at the same time: in one run, with six in parallel, four lost the tool partway through their range, while every later wave of three finished.
 - **Check tool caps before launching.** Tools can limit how many calls they allow per hour or per session, and the limit differs from one provider to another. Before launching helpers, estimate how many calls the whole job needs and compare that with the cap, which the assistant and all its helpers share. Split the job so it fits, run it in waves, record in the notes where each range stopped, and resume after the cap resets (a scheduled task can do this). Claude-specific, as measured on 2026-10-02: the chat-reading tool allowed 256 calls per hour, and reading one long turn cost one call, so a 624-turn chat plus verification passes exceeded one hour's allowance. Other providers will have other limits.
+
+## 18. Bulk cataloguing of past chats
+
+Applies when the user asks to catalogue many past chats ("catalog my past chats", a topic, or a first-time setup on existing history). One chat on its own follows section 5.
+
+- **Step A, inventory.** List the chats, group them by work stream, and give one line each: title and length in turns where known. Chats outside the current scope may be unreachable (section 6).
+- **Step B, triage.** The user marks each chat: catalogue now, later, or drop. "Later" chats go into the backlog as [on hold until the user says so]. Dropped chats go into the register (section 5a) as declined, with the user's reason or "no reason given", so they are never proposed again. Nothing is read in depth before triage. A blank answer means "later"; nothing is dropped by default.
+- **Step C, choose the mode, stating which and why.** Interactive (section 5) when the chat is up to about 50 turns and the batch is fewer than 3 chats; background when a chat is over about 50 turns or the batch is 3 or more. The turn count is checked first. The threshold is a guide and the user can override it.
+- **Step D, background run.** Helpers follow section 17 (right-sized models, notes files with resume markers, small waves, tool caps checked, scheduled resumes after a cap resets). An unattended run produces only a candidates file, grouped by the six groups in section 5. Each candidate carries a checkpoint and an anchor phrase. An unattended run never writes to the catalog or memory and never asks questions.
+- **Step E, verify before presenting.** A verification pass opens each cited turn and finds the anchor phrase. Only candidates that pass are put forward for approval. Candidates that fail are left out and listed separately with the reason, and they are not offered for filing until fixed. Where another source of truth exists (for example a repository), conflicts are resolved to its final state and labelled.
+- **Step F, adoption gate.** The user approves all, by group, or one by one. Questions follow section 9 and writing follows section 10. Anchors are registered in the checkpoint registry; if a chat has many of them, they go in their own file linked from it. Everything not filed goes into the register.
+- **Step G, report.** The three-part report from section 5, step 7, plus the chats skipped or dropped.
+- **Resume.** The backlog line names the next unfinished chat or turn range.

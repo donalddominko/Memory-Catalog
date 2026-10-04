@@ -2,6 +2,10 @@
 
 Specification versions. The version in `SPEC.md` always matches the protocol in use. Each version is tagged in git (`v0.9`, …).
 
+## v0.13 — 2026-10-04
+- **§18 Bulk cataloguing of past chats:** inventory, then triage (catalogue now, later, or drop; dropped chats go into the register), then a mode chosen by a threshold (interactive for a chat up to about 50 turns and a batch under 3; background otherwise). Unattended runs only produce candidates; only candidates whose anchors are verified are put forward; the adoption gate and the three-part report still apply.
+- **§5 and §12:** pointers to §18.
+
 ## v0.12 — 2026-10-02
 - **§9:** when the user does not know which option is better, the assistant presents the trade-offs of each option and a recommendation before asking for a decision.
 - **§17:** check tool caps before launching helpers; the cap differs by provider (the Claude-specific figure is marked as such).
