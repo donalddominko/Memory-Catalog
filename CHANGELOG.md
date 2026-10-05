@@ -23,6 +23,7 @@ Specification versions. The version in `SPEC.md` always matches the protocol in 
 - **§17 Working with helper agents:** right-size the model per task, record progress durably with a resume marker, and keep batches small. At most about three helpers that use a chat-reading tool run at once.
 
 ## v0.10 — 2026-10-01
+Not released on its own: these changes were first published in v0.11.
 - Added §17 (helper agents): choose the model by task, never launch many expensive-model helpers at once, and have each helper record progress to a notes file so an interrupted session loses nothing. Superseded by v0.11, which adds the limit on parallel chat-reading helpers.
 
 ## v0.9 — 2026-09-29
