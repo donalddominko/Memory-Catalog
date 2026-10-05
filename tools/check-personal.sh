@@ -10,7 +10,8 @@
 # .personal-allow (one per line, committed), for example the project's own
 # public repository URL.
 #
-# LICENSE is skipped: its copyright line names the author on purpose.
+# LICENSE and CLA.md are skipped: they name the author on purpose (copyright
+# line; the party contributors grant rights to).
 #
 # Exit 0 = clean. Exit 1 = matches found (printed with file and line).
 
@@ -32,7 +33,7 @@ grep -vE '^\s*(#|$)' "$terms" > "$patterns" || true
 [ -f "$allow" ] && grep -vE '^\s*(#|$)' "$allow" > "$allowed" || true
 
 hits=$(grep -rniwF -f "$patterns" \
-         --exclude-dir=.git --exclude=LICENSE \
+         --exclude-dir=.git --exclude=LICENSE --exclude=CLA.md \
          --exclude="$(basename "$terms")" --exclude=.personal-allow "$dir" || true)
 if [ -s "$allowed" ] && [ -n "$hits" ]; then
   hits=$(printf '%s\n' "$hits" | grep -vF -f "$allowed" || true)
