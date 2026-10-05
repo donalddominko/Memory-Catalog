@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+# SPDX-License-Identifier: AGPL-3.0-only
+# Copyright (C) 2026 Donald Dominko
+#
 # sync-readme-commands.sh — keep the README's command table identical to SPEC.md section 12.
 #
 # SPEC.md is the source of truth. The table sits between these two marker lines

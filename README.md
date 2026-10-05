@@ -84,6 +84,9 @@ templates/project/     empty starter files for a Project
 templates/area.md      empty starter file for a work stream
 examples/              a worked example with a fictional user
 tools/                 checks used by the safety rules (bash)
+CONTRIBUTING.md        how to suggest changes
+CLA.md                 contributor licence agreement
+LICENSE, LICENSE-DOCS, LICENSE-TEMPLATES   the three licences (see Licence below)
 ```
 
 The tools prove that a cleanup lost nothing, that a backup is complete, and that nothing personal is published. What each proves: [SPEC §15](SPEC.md#15-tools-and-publishing). How to run them: [INSTALL.md](INSTALL.md#using-the-tools).
@@ -98,4 +101,14 @@ If Memory Catalog is useful to you, please **leave a star ⭐** at the top of th
 
 ## Licence
 
-[MIT](LICENSE).
+Copyright (C) 2026 Donald Dominko. Different parts use different licences:
+
+| Part | Licence | You may |
+|---|---|---|
+| `tools/` and `.github/` (code) | [AGPL-3.0-only](LICENSE) | Use, change and share it. If you distribute it, or run a changed version as a service for others, you must publish your source under the same licence. |
+| `SPEC.md`, `INSTALL.md`, `CHANGELOG.md`, READMEs and other documentation | [CC BY-SA 4.0](LICENSE-DOCS) | Use, adapt and share it, including commercially, with credit to Memory Catalog and under the same licence. |
+| `templates/` and `examples/` | [CC0 1.0](LICENSE-TEMPLATES) | Anything, with no conditions. Your own catalog files built from the templates are yours. |
+
+**Commercial licences** for the code, without the AGPL conditions, are available from AI Partner Solutions Ltd. To ask, use the contact form at [www.aipartner.london](https://www.aipartner.london).
+
+Versions up to and including spec v0.14 (commit `e32b809`) were released under the MIT licence and remain available under it.

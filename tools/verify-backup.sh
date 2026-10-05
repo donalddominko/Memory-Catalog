@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+# SPDX-License-Identifier: AGPL-3.0-only
+# Copyright (C) 2026 Donald Dominko
+#
 # verify-backup.sh — SPEC rule S2: prove a backup is complete before anything is removed.
 #
 # The backup file holds each memory file between marker lines:

@@ -2,6 +2,11 @@
 
 Specification versions. The version in `SPEC.md` always matches the protocol in use. Each version is tagged in git (`v0.9`, …).
 
+## Repository — 2026-10-05
+- **Licence change.** Code (`tools/`, `.github/`) is now AGPL-3.0-only (`LICENSE`); documentation is CC BY-SA 4.0 (`LICENSE-DOCS`); templates and examples are CC0 1.0 (`LICENSE-TEMPLATES`). Commercial licences for the code are available. Everything up to and including commit `e32b809` (spec v0.14) remains available under MIT. No change to the spec itself.
+- Added `CLA.md` (contributor licence agreement), its signing workflow (`.github/workflows/cla.yml`) and `CONTRIBUTING.md`. Pull requests are currently closed; suggestions go through issues.
+- `check-personal.sh` skips `CLA.md`, which names the author on purpose, as `LICENSE` did.
+
 ## v0.14 — 2026-10-04
 - **§18, step E:** a second check, the source check. A candidate that states the current state of something kept elsewhere (a risk in code, completed work, a setting, a number) is checked against that source at its latest commit, not only against the chat. Results: CONFIRMED, FIXED LATER, REFUTED, PARTLY, NOT CHECKABLE. Fixed-later items are filed as history, refuted ones are left out, and a report must say which candidates were not checked.
 - **§5, step 3:** pointer to the source check.

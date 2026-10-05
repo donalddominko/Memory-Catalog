@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+# SPDX-License-Identifier: AGPL-3.0-only
+# Copyright (C) 2026 Donald Dominko
+#
 # check-personal.sh — SPEC rule S1: nothing personal leaves.
 #
 # Scans every file under DIR (default: current folder) for the terms listed in

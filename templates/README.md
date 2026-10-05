@@ -13,3 +13,5 @@ Empty starter files. The assistant uses them as the layout when you ask it to se
 `/catalog/protocol.md` is not a template: it is `SPEC.md` itself, stored in memory.
 
 The frontmatter (name, description, aliases) follows the file format Claude's memory uses. If your assistant's memory uses a different line convention (for example tags at the start of each line), keep that convention; the structure is what matters.
+
+Licence: [CC0 1.0](../LICENSE-TEMPLATES). Use them for anything, with no conditions; your filled-in files are yours.
