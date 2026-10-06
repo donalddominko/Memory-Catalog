@@ -2,6 +2,9 @@
 
 Specification versions. The version in `SPEC.md` always matches the protocol in use. Each version is tagged in git (`v0.9`, …).
 
+## Repository — 2026-10-06
+- Added `NOTICE`: copyright notice and an express reservation of text-and-data-mining rights, including AI training (Article 4(3) of Directive (EU) 2019/790 and equivalents). Such use is permitted only under the applicable licence or a separate licence; the notice does not restrict any right the licences grant. No change to the spec itself.
+
 ## Repository — 2026-10-05
 - **Licence change.** Code (`tools/`, `.github/`) is now AGPL-3.0-only (`LICENSE`); documentation is CC BY-SA 4.0 (`LICENSE-DOCS`); templates and examples are CC0 1.0 (`LICENSE-TEMPLATES`). Commercial licences for the code are available. Everything up to and including commit `e32b809` (spec v0.14) remains available under MIT. No change to the spec itself.
 - Added `CLA.md` (contributor licence agreement), its signing workflow (`.github/workflows/cla.yml`) and `CONTRIBUTING.md`. Pull requests are currently closed; suggestions go through issues.

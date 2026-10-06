@@ -87,6 +87,7 @@ tools/                 checks used by the safety rules (bash)
 CONTRIBUTING.md        how to suggest changes
 CLA.md                 contributor licence agreement
 LICENSE, LICENSE-DOCS, LICENSE-TEMPLATES   the three licences (see Licence below)
+NOTICE                 copyright notice and reservation of text-and-data-mining rights
 ```
 
 The tools prove that a cleanup lost nothing, that a backup is complete, and that nothing personal is published. What each proves: [SPEC §15](SPEC.md#15-tools-and-publishing). How to run them: [INSTALL.md](INSTALL.md#using-the-tools).
@@ -110,5 +111,7 @@ Copyright (C) 2026 Donald Dominko. Different parts use different licences:
 | `templates/` and `examples/` | [CC0 1.0](LICENSE-TEMPLATES) | Anything, with no conditions. Your own catalog files built from the templates are yours. |
 
 **Commercial licences** for the code, without the AGPL conditions, are available from AI Partner Solutions Ltd. To ask, use the contact form at [www.aipartner.london](https://www.aipartner.london).
+
+**Text and data mining, including AI training,** is reserved: it is permitted only under the terms of the applicable licence or a separate licence. See [NOTICE](NOTICE).
 
 Versions up to and including spec v0.14 (commit `e32b809`) were released under the MIT licence and remain available under it.

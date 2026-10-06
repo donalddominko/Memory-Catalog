@@ -1,0 +1,37 @@
+Memory Catalog
+Copyright (C) 2026 Donald Dominko
+
+This project is licensed under three licences; README.md, section "Licence",
+says which applies to which files:
+
+  LICENSE            GNU Affero General Public License v3.0 only (code)
+  LICENSE-DOCS       Creative Commons Attribution-ShareAlike 4.0 (documentation)
+  LICENSE-TEMPLATES  Creative Commons CC0 1.0 (templates and examples)
+
+
+RESERVATION OF RIGHTS: TEXT AND DATA MINING AND AI TRAINING
+
+The copyright holder expressly reserves all rights to use the contents of
+this repository for text and data mining, including collecting, copying or
+processing it to train, fine-tune, evaluate or ground artificial
+intelligence models or systems.
+
+This reservation is made under Article 4(3) of Directive (EU) 2019/790 and
+under any equivalent provision in other jurisdictions, to the fullest extent
+the applicable law allows. It means that no statutory text and data mining
+exception that can be reserved is available for this repository.
+
+Text and data mining, including AI training, is permitted only:
+
+  1. under the terms of the licence that applies to the material used,
+     including its conditions on attribution, share-alike and, for code,
+     source availability; or
+  2. under a separate written licence from the copyright holder. To ask,
+     use the contact form at www.aipartner.london.
+
+This notice does not restrict any right granted by the licences above. It
+applies to uses that do not comply with those licences and to uses that
+would otherwise rely on a statutory exception.
+
+Ordinary use of the project, including reading, cloning, running and
+modifying it under the licences above, is not affected.
