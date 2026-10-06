@@ -2,6 +2,9 @@
 
 Specification versions. The version in `SPEC.md` always matches the protocol in use. Each version is tagged in git (`v0.9`, …).
 
+## v0.15 — 2026-10-07
+- **§5, step 3 and §5a:** alternatives the user turned down are filed without approval, as rejected alternatives in the area file and declined lines in the register, and are still shown in the step 7 report. Options the user never responded to stay "not discussed".
+
 ## Repository — 2026-10-06
 - Added `NOTICE`: copyright notice and an express reservation of text-and-data-mining rights, including AI training (Article 4(3) of Directive (EU) 2019/790 and equivalents). Such use is permitted only under the applicable licence or a separate licence; the notice does not restrict any right the licences grant. No change to the spec itself.
 

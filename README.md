@@ -94,7 +94,7 @@ The tools prove that a cleanup lost nothing, that a backup is complete, and that
 
 ## Status
 
-Specification **v0.14**. The index, backlog, log, principles, checkpoints and "already considered" register are in daily use. The quotes file, Project feeds and inboxes, and the nightly sync are specified but not yet running. See the [changelog](CHANGELOG.md).
+Specification **v0.15**. The index, backlog, log, principles, checkpoints and "already considered" register are in daily use. The quotes file, Project feeds and inboxes, and the nightly sync are specified but not yet running. See the [changelog](CHANGELOG.md).
 
 ## Support the project
 

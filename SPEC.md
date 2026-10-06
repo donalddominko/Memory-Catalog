@@ -1,4 +1,4 @@
-# Memory Catalog — Specification v0.14
+# Memory Catalog — Specification v0.15
 
 A generic setup for tracking productive work in an AI assistant's memory: what work streams exist, what is to be done next, and what has already happened.
 
@@ -107,7 +107,7 @@ Example of parking: promotion tasks for an open-source project stay active as if
    6. open questions → backlog as `[waiting on the user]`
 
    Everything else is discarded.
-3. **Adoption gate:** anything that came from the assistant's analysis rather than the user is shown as a *candidate* and filed only after the user confirms it. Confirmation is what makes it the user's own. Candidates about the current state of something kept elsewhere also pass the source check (section 18, step E) before they are shown.
+3. **Adoption gate:** anything that came from the assistant's analysis rather than the user is shown as a *candidate* and filed only after the user confirms it. Confirmation is what makes it the user's own. Candidates about the current state of something kept elsewhere also pass the source check (section 18, step E) before they are shown. Exception: alternatives the user turned down — options put to the user where the user chose something else or said no — are already the user's own decision, so they are filed without asking: as rejected alternatives next to the decision in the area file, and as declined lines in the register (section 5a), with the user's reason in the user's own words or "no reason given". They still appear in the step 7 report, where the user can correct them. Options the assistant raised that the user never responded to are not rejected alternatives; they are filed as not discussed.
 4. Ask clarifying questions following section 9, in one round.
 5. Write only what was approved, following section 10.
 6. Record everything that was **not** filed in the register (section 5a), so it is never lost and never presented again as new.
@@ -119,7 +119,7 @@ Inside a Project chat, the same steps write only that Project's files and append
 
 A quick reference to every idea raised in a catalogued chat that did not become a decision, task or principle. It stops good ideas being silently lost, and stops rejected ideas being proposed again as if new.
 
-- **Declined:** the user considered it and said no. Records the user's reason in their own terms, or "no reason given". A reason is never invented.
+- **Declined:** the user considered it and said no. Records the user's reason in their own terms, or "no reason given". A reason is never invented. Declined lines are filed without approval (section 5, step 3), because the decision is already the user's; they are shown in the step 7 report.
 - **Not discussed:** it appeared in the assistant's analysis but the conversation never returned to it. Records only a short topic label, never the assistant's conclusions, because undiscussed analysis is not the user's position. The reasoning stays in the chat, reached through the checkpoint.
 
 Line format: `<status> <date> — <stream>: <topic label> ⟨chat-key tN⟩` (declined lines add `— reason: <user's reason>`). Grouped by stream. An item later adopted is removed and the adoption logged; an item that becomes irrelevant is marked "no longer relevant <date>", not deleted. Every line is shown to the user when it is filed. Inside a Project, the register is `_considered.md`.
