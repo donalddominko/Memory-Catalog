@@ -110,7 +110,7 @@ Copyright (C) 2026 Donald Dominko. Different parts use different licences:
 | `SPEC.md`, `INSTALL.md`, `CHANGELOG.md`, READMEs and other documentation | [CC BY-SA 4.0](LICENSE-DOCS) | Use, adapt and share it, including commercially, with credit to Memory Catalog and under the same licence. |
 | `templates/` and `examples/` | [CC0 1.0](LICENSE-TEMPLATES) | Anything, with no conditions. Your own catalog files built from the templates are yours. |
 
-**Commercial licences** for the code, without the AGPL conditions, are available from AI Partner Solutions Ltd. To ask, use the contact form at [www.aipartner.london](https://www.aipartner.london).
+**Commercial licences** for the code, without the AGPL conditions, are available from AI Partner Solutions Ltd. To ask, use the contact form at [www.aipartnersolutions.co.uk](https://www.aipartnersolutions.co.uk).
 
 **Text and data mining, including AI training,** is reserved: it is permitted only under the terms of the applicable licence or a separate licence. See [NOTICE](NOTICE).
 

@@ -2,6 +2,9 @@
 
 Specification versions. The version in `SPEC.md` always matches the protocol in use. Each version is tagged in git (`v0.9`, …).
 
+## Repository — 2026-10-25
+- Commercial-licence enquiries: the company moved to a new domain, so README and NOTICE now say to use the contact form at www.aipartnersolutions.co.uk (`.personal-allow` updated to match). No change to the spec itself.
+
 ## v0.15 — 2026-10-07
 - **§5, step 3 and §5a:** alternatives the user turned down are filed without approval, as rejected alternatives in the area file and declined lines in the register, and are still shown in the step 7 report. Options the user never responded to stay "not discussed".
 
