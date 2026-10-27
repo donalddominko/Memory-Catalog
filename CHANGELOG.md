@@ -2,6 +2,9 @@
 
 Specification versions. The version in `SPEC.md` always matches the protocol in use. Each version is tagged in git (`v0.9`, …).
 
+## v0.16 — 2026-10-27
+- **§4 and §12, command (10):** a request about tasks that could mean either working on them or removing them ("clear", "close", "sort out", "deal with", "get rid of") is asked about before anything changes: work on them, mark them done (needs evidence), or drop them. A blank answer changes nothing. Added after a request to "clear" a stream's tasks was read as dropping them when the user meant working through them.
+
 ## Repository — 2026-10-25
 - Commercial-licence enquiries: the company moved to a new domain, so README and NOTICE now say to use the contact form at www.aipartnersolutions.co.uk (`.personal-allow` updated to match). No change to the spec itself.
 

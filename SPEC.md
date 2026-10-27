@@ -1,4 +1,4 @@
-# Memory Catalog — Specification v0.15
+# Memory Catalog — Specification v0.16
 
 A generic setup for tracking productive work in an AI assistant's memory: what work streams exist, what is to be done next, and what has already happened.
 
@@ -93,6 +93,8 @@ Template: [`templates/area.md`](templates/area.md). Example: [`examples/areas/ti
 
 A task is only marked done with evidence: the user says so, or a repository shows it (for example a merged commit). When a repository is the evidence, the log line names the commit or date.
 
+**Ambiguous task requests.** When a request about one or more tasks could mean either working on them or removing them (words such as "clear", "close", "sort out", "deal with" or "get rid of"), ask before changing anything. Name the tasks and offer three options: (a) work on them now (mark them `[active]` and start), (b) mark them done (needs evidence, as above), or (c) drop them (`[dropped <date>]`, removed and logged). A blank answer keeps the tasks unchanged (section 9). Only **drop** *task*, *task* **is done** and **park** *task* are unambiguous (section 12).
+
 Example of parking: promotion tasks for an open-source project stay active as if a grant application were planned, and only the grant application itself is parked until promotion shows traction.
 
 ## 5. "catalog this chat": step by step
@@ -185,7 +187,7 @@ Wording doesn't have to be exact; the meaning does. **Where:** MAIN = a chat out
 | **catalog this chat** | ANY | Section 5 (inside a Project it writes only that Project's files) | Candidates and questions, then the three-part report |
 | **catalog my past chats** / **catalog chats about** *topic* | ANY | Section 5, one chat at a time (for many chats, section 18); only reaches chats in the same scope | The same, per chat |
 | **what's next** / **backlog for** *stream* | ANY | Reads the backlog | The matching task lines |
-| **park** *task* / *task* **is done** / **drop** *task* | ANY | Status change + log line; "done" needs evidence (section 4) | Confirmation of the change |
+| **park** *task* / *task* **is done** / **drop** *task* | ANY | Status change + log line; "done" needs evidence (section 4). Wording that could mean doing or removing ("clear", "close", "sort out") is asked about first (section 4) | Confirmation of the change |
 | **status digest** | ANY | Reads the index and backlog | A plain text summary |
 | **was** *idea* **considered?** / **what was left undiscussed about** *stream* | ANY | Reads the register | Matching lines with status and checkpoint |
 | **verify checkpoints** | ANY | Section 6 | Each anchor's result |
