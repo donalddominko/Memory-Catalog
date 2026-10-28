@@ -70,6 +70,7 @@ Say these in plain words; exact wording doesn't matter. **Where:** MAIN = a chat
 | `considered.md` | Ideas declined (with your reason) or raised but not discussed |
 | `checkpoints.md` | Chat keys, turns and anchor phrases for provenance |
 | `quotes.md` | *Planned.* Exact key sentences, append-only |
+| `sync-state.md` | *Planned.* The nightly sync's record of what it has already merged from each Project |
 
 Alongside the catalog, each work stream has an **area file** (`/areas/<stream>.md`) holding its current state. Each Project gets `_board.md`, `_feed.md`, `_inbox.md` and `_considered.md`. Full reference: [SPEC §2](SPEC.md#2-the-files-and-who-writes-them).
 
@@ -88,13 +89,15 @@ CONTRIBUTING.md        how to suggest changes
 CLA.md                 contributor licence agreement
 LICENSE, LICENSE-DOCS, LICENSE-TEMPLATES   the three licences (see Licence below)
 NOTICE                 copyright notice and reservation of text-and-data-mining rights
+.github/workflows/     the CLA signing workflow
+.personal-allow        strings check-personal.sh allows despite matching a personal term
 ```
 
 The tools prove that a cleanup lost nothing, that a backup is complete, and that nothing personal is published. What each proves: [SPEC §15](SPEC.md#15-tools-and-publishing). How to run them: [INSTALL.md](INSTALL.md#using-the-tools).
 
 ## Status
 
-Specification **v0.16**. The index, backlog, log, principles, checkpoints and "already considered" register are in daily use. The quotes file, Project feeds and inboxes, and the nightly sync are specified but not yet running. See the [changelog](CHANGELOG.md).
+Specification **v0.17**. The index, backlog, log, principles, checkpoints and "already considered" register are in daily use. The quotes file, Project feeds and inboxes, and the nightly sync are specified but not yet running. See the [changelog](CHANGELOG.md).
 
 ## Support the project
 

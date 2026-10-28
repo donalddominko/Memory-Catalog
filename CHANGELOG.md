@@ -1,6 +1,12 @@
 # Changelog
 
-Specification versions. The version in `SPEC.md` always matches the protocol in use. Each version is tagged in git (`v0.9`, …).
+Specification versions. The version in `SPEC.md` always matches the protocol in use. Versions from v0.8 on are tagged in git (`v0.8`, `v0.9`, …); v0.10 was not released on its own.
+
+## v0.17 — 2026-10-28
+- **§18, step B:** chats triaged "later" go into the backlog as `[waiting on the user]`, a state defined in §4, instead of the undefined "[on hold until the user says so]".
+
+## Repository — 2026-10-28
+- Consolidation audit at v0.16. README: the planned `sync-state.md` added to the catalog file table, and `.github/` and `.personal-allow` added to the repository layout. Changelog: the note on tags now says which versions are tagged.
 
 ## v0.16 — 2026-10-27
 - **§4 and §12, command (10):** a request about tasks that could mean either working on them or removing them ("clear", "close", "sort out", "deal with", "get rid of") is asked about before anything changes: work on them, mark them done (needs evidence), or drop them. A blank answer changes nothing. Added after a request to "clear" a stream's tasks was read as dropping them when the user meant working through them.

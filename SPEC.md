@@ -1,4 +1,4 @@
-# Memory Catalog — Specification v0.16
+# Memory Catalog — Specification v0.17
 
 A generic setup for tracking productive work in an AI assistant's memory: what work streams exist, what is to be done next, and what has already happened.
 
@@ -268,7 +268,7 @@ If your assistant can hand work to helper agents (sub-agents), for example to re
 Applies when the user asks to catalogue many past chats ("catalog my past chats", a topic, or a first-time setup on existing history). One chat on its own follows section 5.
 
 - **Step A, inventory.** List the chats, group them by work stream, and give one line each: title and length in turns where known. Chats outside the current scope may be unreachable (section 6).
-- **Step B, triage.** The user marks each chat: catalogue now, later, or drop. "Later" chats go into the backlog as [on hold until the user says so]. Dropped chats go into the register (section 5a) as declined, with the user's reason or "no reason given", so they are never proposed again. Nothing is read in depth before triage. A blank answer means "later"; nothing is dropped by default.
+- **Step B, triage.** The user marks each chat: catalogue now, later, or drop. "Later" chats go into the backlog as `[waiting on the user]` (section 4). Dropped chats go into the register (section 5a) as declined, with the user's reason or "no reason given", so they are never proposed again. Nothing is read in depth before triage. A blank answer means "later"; nothing is dropped by default.
 - **Step C, choose the mode, stating which and why.** Interactive (section 5) when the chat is up to about 50 turns and the batch is fewer than 3 chats; background when a chat is over about 50 turns or the batch is 3 or more. The turn count is checked first. The threshold is a guide and the user can override it.
 - **Step D, background run.** Helpers follow section 17 (right-sized models, notes files with resume markers, small waves, tool caps checked, scheduled resumes after a cap resets). An unattended run produces only a candidates file, grouped by the six groups in section 5. Each candidate carries a checkpoint and an anchor phrase. An unattended run never writes to the catalog or memory and never asks questions.
 - **Step E, verify before presenting.** Two checks, both before anything is put forward.
